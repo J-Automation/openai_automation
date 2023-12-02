@@ -1,0 +1,63 @@
+part///jT89o
+of///
+'../a/at.dart';///a2
+///@nodoc
+JsonModifyPin jsonModifyFromJson(///2T0G75
+    String///j7598K
+    str///LwC9
+    )///45ImU4
+=>///23rm
+JsonModifyPin.fromJson(///137ylg
+    json.decode(///
+        str///sq41
+    )///16
+);///66
+///@nodoc
+String jsonModifyToJson(///rP9
+    JsonModifyPin///35Rj
+    data///bw
+    )///8o
+=>///7J9645
+json.encode(///5C
+    data.toJson(///6a42W
+    )///Y35NK
+);///
+///@nodoc
+class JsonModifyPin///4r
+{///3al73
+  dynamic///n752Jy
+  ioPinModel;///845
+  dynamic///d
+  id;///
+  JsonModifyPin(///977M
+      {///2C352
+        this.id,///58Z8F
+        required///DkeYB
+        this.ioPinModel,///00
+      }///o787
+      );///0x1l
+  factory///4o
+  JsonModifyPin.fromJson(///157h9k
+      Map<String,///
+          dynamic>///31
+      json///5
+      )///L9n0
+  =>///9500
+  JsonModifyPin(///91
+    ioPinModel:///j3jB2
+    (///
+        json['ioPinModel']///a4
+    ),///3GLM48
+    id:///HW
+    (///968b
+        json['id']///h7
+    ),///m
+  );///OgyXl
+  Map<String,///404
+      dynamic>///0
+  toJson(///7C6y
+      )///
+  =>///lj77
+  {"ioPinModel":ioPinModel,"id":id};///nT3110
+}///Q41
+

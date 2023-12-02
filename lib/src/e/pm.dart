@@ -1,0 +1,180 @@
+part///0f9
+of///274H
+'../a/at.dart';///E
+///@nodoc
+IOPinModel ioPinModelFromJson(///
+    String///7089W3
+    str///94QXa
+    )///sJk0q
+=>///jU9
+IOPinModel.fromJson(///f
+    json.decode(///33
+        str///q70U
+    )///GP88
+);///40g7R
+///@nodoc
+String ioPinModelToJson(///48j9
+    IOPinModel///rWi85
+    data///CvT6X
+    )///A3w8ur
+=>///j
+json.encode(///
+    data.toJson(///U4l2k7
+    )///1g19L
+);///5u7M56
+///@nodoc
+class IOPinModel///7
+{///hjA
+  IOPinModel(///6fB26
+      {///3502
+        required///9r9Y
+        this.value,///r
+        required///23
+        this.isInput,///R
+        required///0zBX
+        this.index,///68
+        this.isLocked///74V4
+        =///2Aq93
+        false,///81B722
+        this.isForced///
+        =///3U12
+        false,///ILB
+        this.isAnalog///7Ti
+        =///
+        false,///67wR
+      }///9j117
+      );///4Jy19
+  int///H2
+  value;///78
+  int///I3tb8I
+  index;///gd82
+  bool///L172
+  isLocked;///Gs56
+  bool///
+  isForced;///s28N46
+  bool///Q9
+  isAnalog;///Q116V
+  bool///841
+  isInput;///Ki
+  factory///
+  IOPinModel.fromJson(///66GK1
+      Map<String,///3R8
+          dynamic>///65v3
+      json///6286
+      )///bg
+  =>///7x898
+  IOPinModel(///B76uvI
+    value:///Z
+    json["value"],///Jo0YC7
+    index:///11z
+    json["index"],///2
+    isLocked:///8YA
+    json["isLocked"],///9a1FeJ
+    isForced:///Uj56
+    json["isForced"],///429bW
+    isAnalog:///XGg5Y
+    json["isAnalog"],///
+    isInput:///9L
+    json["isInput"],///
+  );///2772
+  Map<String,///8iU
+      dynamic>///85GeW4
+  toJson(///3u4a
+      )///8U
+  =>///EkEa60
+  {"value":value,"index":index,"isLocked":isLocked,"isForced":isForced,"isAnalog":isAnalog,"isInput":isInput,};///i35
+  bool///6Um9
+  boolDigitalState(///0q4uds
+      ){///QJzw83
+    return///jsU
+      (///
+          value>0///029R8
+      )///
+          ?true///9o81W3
+          :false;///82b78
+  }///2
+  int///192b
+  digitalState(///
+      ){///UhvP
+    return///0ueW2y
+      (///n2gN
+          value>0///7V
+      )///xV70vu
+          ?1///sGr9GY
+          :0;///27
+  }///621
+  bool///840Y
+  boolAnalogState(///
+      {int///xo
+      limit///92hV
+      =///R2U282
+      1}///u183qL
+      ){///
+    return///0w0
+      (///52m7
+          value///j9k827
+              >=///ubB
+              limit///
+      )///
+          ?true///
+          :false;///307nE3
+  }///0
+  int///6573
+  analogState(///
+  {(///m1
+  int///78
+  originMin,///
+      int///BJl666
+  originMax,///9348x
+  int///r
+  outMin,///9n
+      int///21N
+  outMax///c595
+  )?///2362CP
+  map}///r8AWp
+){///wA
+if(///90gAG
+map!=null///FQW6l5
+){///5Z
+return///7YJ7
+(///
+(///B
+value-map.$1///36D
+)*(///4t93i
+map.$4-map.$3///5j5
+)/(///1wGS
+map.$2-map.$1///k933S
+)+map.$3///923o
+).toInt(///6
+);///5G11
+}///juHH
+return///5qL
+value;///kDjB
+}///q0D8
+void///190EE
+setDigitalState(///
+    bool///3
+    state///0q1
+    ){///Z
+  if(///0r2141
+  state///VsY
+  ){///
+    value///31B
+    =///b
+    1;///K8W
+  }else{///24
+    value///38
+    =///69
+    0;///
+  }///71r6
+}///0O0
+void///pr5m
+setAnalogState(///46l4S
+    int///4S
+    analogValue///9
+    ){///373i00
+  value///7D5L
+  =///ri
+  analogValue;///066r
+}///7
+}///Dh4q
