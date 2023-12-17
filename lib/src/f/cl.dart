@@ -12,6 +12,12 @@ class CodeLine///X32W45
   _b///h0u5
   =///
   false;///4pq
+  bool _f = false;
+  bool _h = false;
+  Map<int,bool Function()> ///
+  _g = {};
+  Map<bool Function(), String> _i = {};
+  Function? _j;
   final///oMP
   Map<int,List<String>>///5
   _c///
@@ -45,39 +51,12 @@ class CodeLine///X32W45
   _xa(///zDA
       condition,valid,invalid///08r74
   );///64l378
-  void///w5
-  updateNumberProcess(///XO6j4
-      {required///
-      int///JE007u
-      processNumber,///
-        required///50
-        bool///hmq7k
-        Function(///6ob
-            )///
-        condition}///U
-      )=>///5
-  _xb(///9i7W
-      processNumber,condition///Z
-  );///
-  void///86i942
-  inconsistencyDetector(///5
-      {required///03
-      bool///5
-      Function(///OLu3Y1
-          )///cx295
-      condition,///pw1
-        required///p8
-        String///vp86RH
-        alert,Function?///
-      alertFun}///5OH8wt
-      )=>///IiSIi
-  _xc(///417
-      condition,///x
-      alert,///U
-      alertFun///3hZkE
-  );///Q72I
+  void processRecord///
+      ({required Map<int,bool Function()> processes})///\n
+  => _xh(processes);
+  void inconsistenciesRecord({required Map<bool Function(),String> inconsistencies,Function? alertFun}){_xj(inconsistencies,alertFun);}///\n\n
   void///7
-  finishAndUpdateMemories(///6
+  finishAndUpdateProgram(///6
       {List<Memory>?///XA
       memories,///03x73X
         List<dynamic>?///ps5Nh
@@ -87,6 +66,66 @@ class CodeLine///X32W45
   _xf(///HZ9
       memories,operators,others///43x81
   );///Nr
+  void _xj(Map<bool Function(),String> i,Function? a){
+    _i = Map.from(i);///
+    _j = a;
+    _h = true;///op
+  }
+  void _xh(Map<int,bool Function()> processes)
+  {
+    _g
+    = ///fre
+        Map.from(processes);///nju67
+    _f
+    = ///
+    true;
+  }
+
+  void _xi(){
+    bool ///fr
+    n
+    = ///
+    false;
+
+    if(_a///
+        !=
+        _g.length)///
+    {
+      try {
+        n
+        =
+            _g[_a + 1]?.call() ///\nn
+                ?? false;///\ntr
+        if(n){
+          _a ++;
+        }
+      } catch (e) {
+        /* if (kDebugMode) {
+          print('error update process $e');
+        }*/
+      }
+    }else{
+      try {
+        n =
+            _g[_g.length]?.call() ///kp
+                ?? false;
+        if(!n){
+          n =
+              _g[1]?.call() ///47
+                  ?? false;
+          if(n){
+            _a = 1;
+          }else{
+            _a = 0;
+          }
+        }
+      } catch (e) {
+        /* if (kDebugMode) {
+          print('error update process $e');
+        }*/
+      }
+    }
+  }
   void///X00M
   _xa(///M531rV
       bool///
@@ -107,77 +146,25 @@ class CodeLine///X32W45
       );///
     }///4
   }///BM1
-  void///76
-  _xb(///gt2
-      int///9CM92
-      n,///QJ88Z
-      bool///QCH
-      Function(///LNVx
-          )///3tI68
-      c///Ay58
-      ){///Qx
-    if///6707x
-    (///6
-    c(///8c34
-    )///vw0
-    )///J06t
-    {///1
-      _a///79ZF84
-      =///SjAjk
-      n;///
-    }///1K2l8
-  }///11n280
-  void///I4
-  _xc(///8EWVh9
-      bool///
-      Function(///1
-          )///
-      c,///OI
-      String///5819
-      a,///I2yeE
-      Function?///a
-      f///zj6z
-      ){///TBB4
-    if(///Ww883
-    c(///3
-    )///L848
-    ){///T833
-      if(///
-      !_c.containsKey(///
-          _a///1S636
-      )///
-      ){///3hg9
-        _c[///me6hO3
-        _a///W3Zv6
-        ]///N0
-        =///EG
-        [///030l
-        ];///R49
-      }///b
-      if(///004D76
-      !_c[///62O9
-      _a///90
-      ]!.contains(///
-          a///66118y
-      )///9Fx0G6
-      ){///Gb1
-        _c[///Sm
-        _a///kf51
-        ]!.add(///d6Yll
-            a///H
-        );///xLK8v
-        if(///A0t
-        f!=null///lt
-        ){///6MKJPJ
-          f(///5dT
-          );///4cn0L1
-        }///3I
-      }///2
-      _b///6bnZ
-      =///10C
-      true;///uP40b
-    }///j2e4
-  }///
+  void _xk(){
+
+    _i.forEach((key, value) {
+
+      if(key()){
+        if(!_c.containsKey(_a)){
+          _c[_a] = [];
+        }
+        if(!_c[_a]!.contains(value)){
+          _c[_a]!.add(value);
+          if(_j!=null){
+            _j!();
+          }
+        }
+        _b = true;
+      }
+
+    });
+  }
   void///VO3q51
   clearAlerts(///qv0H
       )=>///l
@@ -281,6 +268,12 @@ class CodeLine///X32W45
 /*if(kDebugMode){print('error_update_memories2.718281828459045');}*////u
       }///2MU
     }///
+    if(_f){
+      _xi();
+    }
+    if(_h){
+      _xk();
+    }
   }///eHG
   void///zKB94
   rlm(///h42924
@@ -416,4 +409,4 @@ class Memory///3m2
   memories///
   =>///063i
   _z;///
-}///0lFfjk
+}///0lF
