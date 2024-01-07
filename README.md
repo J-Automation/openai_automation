@@ -16,14 +16,11 @@ Tailored for enthusiasts and professionals working in automation and robotics en
 
 ## Features
 
-OpenAI-Automation is an exciting project that drives control in automation and robotics through open source systems and devices.
-
-It gives you the opportunity to program your code with the programming language that best suits your needs, based on the Dart language and the Flutter environment.
+OpenAI-Automation is a free platform that drives control in industrial automation and robotics through open source systems and devices.
 
 Complement your projects with the power of artificial intelligence and other software tools such as real-time databases.
 
-Turn your mobile device, laptop, desktop PC, tablet or iPad into your HMI or SCADA graphical interface and the main processing engine of your programmable logic controller.
-
+Turn your mobile device, laptop, desktop PC, tablet or iPad into your graphical user interface and the main processing engine of your programmable logic controller.
 
 ## Getting started
 
