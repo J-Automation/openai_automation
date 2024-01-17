@@ -70,7 +70,17 @@ class IOLockStateIcon extends StatelessWidget {
     ioPin.isForced = ioPin.isLocked;
     IOUtils.lastIOPinManipulated = ioPin;
     (ioPin.isInput)?automation!.setVirtualInputs=true:automation!.setForcedOutputs=true;
-    automation!.notify();
+    if(!ioPin.isLocked){
+      if(ioPin.isInput){
+        automation!.input[ioPin.index].value = automation!.inputResult[ioPin.index].value;
+        automation!.updateProgram();
+      }else{
+        automation!.output[ioPin.index].value = automation!.outputResult[ioPin.index].value;
+        automation!.updateForcedOutputs();
+      }
+    }else{
+      automation!.notify();
+    }
   }
 }
 

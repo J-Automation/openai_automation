@@ -1,3 +1,5 @@
+/*
+
 import 'package:flutter/material.dart';
 import 'package:openai_automation/openai_automation.dart';
 import 'package:provider/provider.dart';
@@ -52,3 +54,5 @@ class MyPLC {
   static OpenAutomation mini = OpenAutomation.getInstance();
   static UsbCommWindows usb = UsbCommWindows(mini);
 }
+
+ */
