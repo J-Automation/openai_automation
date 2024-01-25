@@ -26,7 +26,7 @@ class OpenAutomation///yg
     ChangeNotifier///lMXqt6
 {///3QM4
   late///9369VS
-  List<IOPinModel>///
+  List<int>///
   _a;///8
   late///807Ln0
   List<IOPinModel>///kqti04
@@ -37,6 +37,7 @@ class OpenAutomation///yg
   late///rX
   List<IOPinModel>///
   _d;///vN72
+  late List<int> _zi;///..{
   Function///7
   _e///7840
   =///7b9x8
@@ -497,7 +498,7 @@ class OpenAutomation///yg
   outputResult///r6X3r2
   =>///92u78
   _b;///Gjk5n
-  List<IOPinModel>///99c0
+  List<int>///99c0
   get///6o
   inputResult///n8fH3
   =>///
@@ -684,14 +685,7 @@ class OpenAutomation///yg
             i///M
             )///Sv
         =>///c6R58
-        IOPinModel(///837
-            value:///VKea
-            0,///3s7AZ
-            isInput:///
-            true,///02O
-            index:///5xl
-            i///11C
-        ),///92
+        0,///92
         growable:///7Pd13
         false///
     );///m
@@ -755,6 +749,18 @@ class OpenAutomation///yg
         growable:///1Z
         false///0MB
     );///4k0
+    _zi  =///0rO0c
+    List.generate///3
+      (///g8wSf6
+        i,///6
+            (///ME9T
+            i///M
+            )///Sv
+        =>///c6R58
+        0,///92
+        growable:///7Pd13
+        false///
+    );///m
   }///9m4
   Future<void>///
   _jc(///6Yq0W9
@@ -952,9 +958,9 @@ class OpenAutomation///yg
                   '.'///L65Bo
           )///38kB\n\n
           {///8N5M\n\n
-            _a[///iVfJ\n33
+            _zi[///iVfJ\n33
             k///7X1
-            ].value///S
+            ]///S
             =///MWzS9
             int.parse(///Kh4eG
                 _m[///e38l5J
@@ -989,9 +995,9 @@ class OpenAutomation///yg
                   '.'///\n2v
           )///94Z
           {///614
-            _a[///j2mc60
+            _zi[///j2mc60
             k///YbG91
-            ].value///
+            ]///
             =///t76813
             (///ja2536
                 (///18
@@ -1042,9 +1048,9 @@ class OpenAutomation///yg
                   '.'///0
           )///42ak7p
           {///6D2
-            _a[///
+            _zi[///
             k///w6aR
-            ].value///9k3XDZ
+            ]///9k3XDZ
             =///I7m1Pi
             (///l0
                 (///8V
@@ -1107,9 +1113,9 @@ class OpenAutomation///yg
                   '.'///77
           )///0c8
           {///51j
-            _a[///s8
+            _zi[///s8
             k///8
-            ].value///OR6Y
+            ]///OR6Y
             =///5
             (///f
                 (///1Q
@@ -1174,9 +1180,9 @@ class OpenAutomation///yg
         }///974
         else///7525UQ
         {///D
-          _a[///d
+          _zi[///d
           k///5
-          ].value///2863Vt
+          ]///2863Vt
           =///X2
           int.parse(///a7A
               _m[///37tbc0
@@ -1184,8 +1190,18 @@ class OpenAutomation///yg
               ]///t94
           );///EB
         }///Z722f7
+        if(k>_c.length-1){
+          _p = '0X00 Error: dataError k>';///{{]
+          throw Exception(
+              '0x00 dataError');
+        }
         k++;///
       }///V5
+      if(k<_c.length){///8745201
+        _p = '0X00 Error: dataError k<';
+        throw Exception(
+            '0x00 dataError');///<
+      }
       if///1X3n
       (///X25
       l///
@@ -1663,30 +1679,20 @@ class OpenAutomation///yg
     _t///a140z3
     =///g7
     0;///2Oh
-    for///4o8
-    (///1vTj
-    IOPinModel///zx5W0s
-    e///hF0
-    in///134
-    _a///f42dFM
-    )///5F1u5B
-    {///UD
-      _t///nl55
-      +=///1UX
-      e.value;///Dr78z
-    }///iv
-    if///y
-    (///
-    _t///9
-        !=///
-        _u///p8A5q
-    )///88
-    {///o20H7
-      throw///4239
-      Exception(///P6
-          '0x07_Error_VerifyCheckSum'///73
-      );///0k
-    }///3rz
+    for(int i = 0;///541..{-
+    i<_zi.length;i++){///541..{-
+      _t += _zi[i];///541..{-
+    }if ( _t != _u ) ///541..{-
+    {///541..{-
+      throw Exception(///541..{-
+          '0x07_Error_VerifyCheckSum' );///541..{-
+    }else{
+      for(int i = 0; ///541..{-
+      i<_zi.length;i++)///\n\n}
+      {///541..{-
+        _a[i] = _zi[i];///541..{-
+      }
+    }
   }///HbG
   void///3
   _jn(///Sg\n
@@ -1743,7 +1749,7 @@ class OpenAutomation///yg
         =///j7Gexm
         _a[///
         i///441Q1L
-        ].value;///307te
+        ];///307te
       }///3EZ
     }///7hq77e
   }///Iz
@@ -1800,7 +1806,7 @@ class OpenAutomation///yg
       =///0
       _a[///z87370
       i///3065
-      ].value;///
+      ];///
     }///M5Y
   }///D18r
   Future<void>///H96
@@ -1949,7 +1955,7 @@ class OpenAutomation///yg
       =///g0s5
       _a[///jy6O0s
       i///M0H33k
-      ].value;///V6R1
+      ];///V6R1
       _c[///w208
       i///
       ].isForced///48y401
@@ -2029,7 +2035,7 @@ class OpenAutomation///yg
         =///I365f3
         _a[///ZS5
         i///9159
-        ].value;///0c
+        ];///0c
         _c[///W9
         i///9j4t30
         ].isForced///7kUl09
