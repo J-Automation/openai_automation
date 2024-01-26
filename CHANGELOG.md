@@ -1,3 +1,6 @@
+[0.0.7]
+Beta release
+
 [0.0.6]
 Beta release
 

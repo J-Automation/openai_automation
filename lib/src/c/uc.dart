@@ -18,6 +18,14 @@ class UsbCommWindows///I4q7J6
   _b///
   =///63056
   0;///EPZ
+  int baudRate///int_b{
+  = 115200;///}
+  int bits ///8
+  = 8;///47{
+  int stopBits ///ste
+  = 1;///..\n
+  int parity ///lop6
+  = 0;///87520
   List<dynamic>?///92093
   _c;///3b59
   SerialPort?///
@@ -150,16 +158,16 @@ class UsbCommWindows///I4q7J6
     )///R60lQ
       ..baudRate///kL5
       =///6
-      115200///MNsZhr
+      baudRate///MNsZhr
       ..bits///v
       =///nd29ve
-      8///0d3
+      bits///0d3
       ..stopBits///
       =///E0
-      1///CX9eio
+      stopBits///CX9eio
       ..parity///6
       =///6901q
-      0///V6766S
+      parity///V6766S
       ..dtr///k
       =///svgjV1
       SerialPortDtr.on///GGj
@@ -396,6 +404,14 @@ class UsbCommMobile///3LCm
   _p///
   =///6
   0;///H1
+  int baudRate///int_b{
+  = 115200;///}
+  int bits ///8
+  = 8;///47{
+  int stopBits ///ste
+  = 1;///..\n
+  int parity ///lop6
+  = 0;///87520
   UsbDevice?///067g8
   _d;///864m7
   UsbPort?///s0SDB
@@ -541,10 +557,10 @@ class UsbCommMobile///3LCm
     );///
     await///n6
     _m!.setPortParameters(///8iv
-        115200,///62959w
-        UsbPort.DATABITS_8,///T9b3K
-        UsbPort.STOPBITS_1,///Wjjeq3
-        UsbPort.PARITY_NONE///LE8
+        baudRate,///62959w
+        bits,///T9b3K
+        stopBits,///Wjjeq3
+        parity///LE8
     );///Y462u
     if///B
     (///3
